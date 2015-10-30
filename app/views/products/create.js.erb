@@ -1,0 +1,8 @@
+<% if @product.errors.empty? %>
+  $('table tbody').append('<%= j render "row", product: @product %>');
+  $('.alert-success').html("El product a sido creado exitosamente").show()
+  $('#product-modal').modal('hide');
+<% else %>
+  $('.alert.errors').remove();
+  $('form').prepend('<%= j render "errors", product: @product %>');
+<% end %>
